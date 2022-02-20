@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="magic.css">
+</head>
+<body>
+    <div class="navBar">
+        <a href="index.html">HOME</a>
+        <a href="HeroConverter.html">Converter</a>
+        <a href="max_min.html">MaxMin</a>
+        <a href="magicBox.html">Magic_Box</a>
+    </div>
+<div class="body">
+<h1 style="color:dodgerblue;text-align: center;" > Magic Box </h1>
+<center><textarea style="width: 100%;height: 80px; font-family: inherit ;font-size: 20px; border: 20px solid darkred;" rows="20"></textarea></center>
+
+<div style="text-align: center;width: 100%;">
+<input id="clr" type="button" value="Clear It" />
+<input id="capita" type="button" value="Capitalize" />
+<input id="srt" type="button" value="Sort" />
+<input id="rev" type="button" value="Reverse"/>
+<input id="sB" type="button" value="Strip Blank" />
+<input id="anumb" type="button" value="Add Numbers" />
+<input id="shuf" type="button" value="Shuffle" />
+</div>
+</div>
+
+<script>
+    
+var num = document.getElementsByTagName('textarea')[0]
+document.getElementById('clr').onclick = function () {
+num.value = ''
+}
+var capitalize = true;
+document.getElementById('capita').onclick = function () {
+if (capitalize) num.value = num.value.toUpperCase()
+else num.value = num.value.toLowerCase()
+capitalize = !capitalize;
+}
+document.getElementById('sB').onclick = function () {
+var line = num.value.split('\n')
+for (var i = 0; i < line.length; i++)
+line[i] = line[i].trim();
+line = line.join('\n')
+num.value = line
+}
+document.getElementById('srt').onclick = function () {
+var line = num.value.split('\n')
+num.value = line.sort().join('\n')
+}
+document.getElementById('rev').onclick = function () {
+var line = num.value.split('\n')
+for (var i = 0; i < line.length; i++) {
+var prev = line[i];
+line[i] = '';
+for (var j = 0; j < prev.length; j++)
+line[i] = prev[j] + line[i];
+}
+line= line.join('\n')
+num.value = line
+}
+document.getElementById('anumb').onclick = function () {
+var line = num.value.split('\n')
+for (var i = 0; i < line.length; i++)
+line[i] = i + 1 + '. ' + line[i];
+line = line.join('\n')
+num.value = line
+}
+document.getElementById('shuf').onclick = function () {
+var line = num.value.split('\n')
+}
+</script>
+</body>
+</html>
